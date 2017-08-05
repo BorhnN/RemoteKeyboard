@@ -5,9 +5,6 @@
     android:versionCode="8"
     android:versionName="1.7">
 
-    <uses-sdk
-        android:minSdkVersion="9"
-        android:targetSdkVersion="17" />
 
     <uses-permission
         android:name="android.permission.BIND_INPUT_METHOD"
@@ -71,7 +68,8 @@
         <activity
             android:name="de.onyxbits.remotekeyboard.ReplacementsListActivity"
             android:label="@string/title_activity_replacements_list"
-            android:parentActivityName="de.onyxbits.remotekeyboard.MainActivity">
+            android:parentActivityName="de.onyxbits.remotekeyboard.MainActivity"
+            tools:targetApi="jelly_bean">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="de.onyxbits.remotekeyboard.MainActivity" />
@@ -79,7 +77,8 @@
         <activity
             android:name="de.onyxbits.remotekeyboard.ReplacementActivity"
             android:label="@string/title_activity_replacement"
-            android:parentActivityName="de.onyxbits.remotekeyboard.ReplacementsListActivity">
+            android:parentActivityName="de.onyxbits.remotekeyboard.ReplacementsListActivity"
+            tools:targetApi="jelly_bean">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="de.onyxbits.remotekeyboard.ReplacementsListActivity" />
@@ -87,7 +86,8 @@
         <activity
             android:name="de.onyxbits.remotekeyboard.SettingsActivity"
             android:label="@string/title_activity_settings"
-            android:parentActivityName="de.onyxbits.remotekeyboard.MainActivity">
+            android:parentActivityName="de.onyxbits.remotekeyboard.MainActivity"
+            tools:targetApi="jelly_bean">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="de.onyxbits.remotekeyboard.MainActivity" />

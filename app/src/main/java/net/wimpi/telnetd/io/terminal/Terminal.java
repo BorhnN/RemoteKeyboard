@@ -52,27 +52,27 @@ public interface Terminal {
      * Ctrl-d, which flags end of transmission, or better said
      * a client logout request.
      */
-    public static final byte EOT = 4;
+    byte EOT = 4;
     /**
      * <b>BackSpace</b><br>
      * The ANSI defined byte code of backspace.
      */
-    public static final byte BS = 8;
+    byte BS = 8;
     /**
      * <b>Delete</b><br>
      * The ANSI defined byte code of delete.
      */
-    public static final byte DEL = 127;
+    byte DEL = 127;
     /**
      * <b>Horizontal Tab</b><br>
      * The ANSI defined byte code of a horizontal tabulator.
      */
-    public static final byte HT = 9;
+    byte HT = 9;
     /**
      * <b>FormFeed</b><br>
      * The ANSI defined byte code of a form feed.
      */
-    public static final byte FF = 12;
+    byte FF = 12;
     /**
      * <b>SGR Input Key</b><br>
      * Ctrl-a as defined byte code. It might be of
@@ -80,69 +80,69 @@ public interface Terminal {
      * for the user to create marked up (i.e. formatted)
      * input for the application context.
      */
-    public static final byte SGR = 1;
+    byte SGR = 1;
     /**
      * <b>Cancel</b><br>
      * The ANSI defined byte code for cancelling an
      * escape sequence.
      */
-    public static final byte CAN = 24;
+    byte CAN = 24;
     /**
      * <b>Escape</b><br>
      * The ANSI definde byte code of escape.
      */
-    public static final byte ESC = 27;
+    byte ESC = 27;
     /**
      * <b>[ Left Square Bracket</b><br>
      * The ANSI defined byte code of a left square bracket,
      * as used in escape sequences.
      */
-    public static final byte LSB = 91;
+    byte LSB = 91;
     /**
      * <b>; Semicolon</b><br>
      * The ANSI defined byte code of a semicolon, as
      * used in escape sequences.
      */
-    public static final byte SEMICOLON = 59;
+    byte SEMICOLON = 59;
     /**
      * <b>A (UP)</b><br>
      * The byte code of A, as used in escape sequences
      * for cursor up.
      */
-    public static final byte A = 65;
+    byte A = 65;
     /**
      * <b>B (DOWN)</b><br>
      * The byte code of B, as used in escape sequences
      * for cursor down.
      */
-    public static final byte B = 66;
+    byte B = 66;
     /**
      * <b>C (RIGHT)</b><br>
      * The byte code of C, as used in escape sequences
      * for cursor right.
      */
-    public static final byte C = 67;
+    byte C = 67;
     /**
      * <b>D (LEFT)</b><br>
      * The byte code of D, as used in escape sequences
      * for cursor left.
      */
-    public static final byte D = 68;
+    byte D = 68;
 
 
 //Constants
     /**
      * <b>Other characters used in escape sequences.</b>
      */
-    public static final byte E = 69; // for next Line (like CR/LF)
-    public static final byte H = 72; // for Home and Positionsetting or f
-    public static final byte f = 102;
-    public static final byte r = 114;
+    byte E = 69; // for next Line (like CR/LF)
+    byte H = 72; // for Home and Positionsetting or f
+    byte f = 102;
+    byte r = 114;
     /**
      * <b>Characters needed for erase sequences.</B>
      */
-    public static final byte LE = 75;    // K...line erase actions related
-    public static final byte SE = 74;    // J...screen erase actions related
+    byte LE = 75;    // K...line erase actions related
+    byte SE = 74;    // J...screen erase actions related
 
     /**
      * Translates a control character into terminal independent
@@ -151,7 +151,7 @@ public interface Terminal {
      * @param byteread int read from the input stream.
      * @return the read int or the internal control character definition.
      */
-    public int translateControlCharacter(int byteread);
+    int translateControlCharacter(int byteread);
 
     /**
      * Translates an escape sequence into a terminal independent
@@ -160,7 +160,7 @@ public interface Terminal {
      * @param buffer array of integers containing a escape sequence.
      * @return the terminal independent representation.
      */
-    public int translateEscapeSequence(int[] buffer);
+    int translateEscapeSequence(int[] buffer);
 
     /**
      * Returns a terminal dependent escape sequence for
@@ -183,7 +183,7 @@ public interface Terminal {
      * @see net.wimpi.telnetd.io.TerminalIO#EBOS
      * @see net.wimpi.telnetd.io.TerminalIO#EES
      */
-    public byte[] getEraseSequence(int eraseFunc);
+    byte[] getEraseSequence(int eraseFunc);
 
     /**
      * Returns a terminal dependent escape sequence for a
@@ -200,7 +200,7 @@ public interface Terminal {
      * @param times Number of movements into given direction.
      * @return the byte sequence representing the terminal dependent escape sequence.
      */
-    public byte[] getCursorMoveSequence(int dir, int times);
+    byte[] getCursorMoveSequence(int dir, int times);
 
     /**
      * Returns a terminal dependent escape sequence for
@@ -217,7 +217,7 @@ public interface Terminal {
      * @return the byte sequence representing the terminal dependent escape sequence.
      * @see net.wimpi.telnetd.io.TerminalIO#HOME
      */
-    public byte[] getCursorPositioningSequence(int[] pos);
+    byte[] getCursorPositioningSequence(int[] pos);
 
     /**
      * Returns the terminal dependent escape sequence for
@@ -233,7 +233,7 @@ public interface Terminal {
      * @see net.wimpi.telnetd.io.TerminalIO#STORECURSOR
      * @see net.wimpi.telnetd.io.TerminalIO#RESTORECURSOR
      */
-    public byte[] getSpecialSequence(int sequence);
+    byte[] getSpecialSequence(int sequence);
 
     /**
      * Returns the terminal dependent escape sequence
@@ -245,7 +245,7 @@ public interface Terminal {
      * @param bottommargin lower border of the scrolling area as row coordinate.
      * @return the byte sequence representing the terminal dependent escape sequence.
      */
-    public byte[] getScrollMarginsSequence(int topmargin, int bottommargin);
+    byte[] getScrollMarginsSequence(int topmargin, int bottommargin);
 
     /**
      * Returns the terminal dependent escape sequence
@@ -276,7 +276,7 @@ public interface Terminal {
      * @param param Parameter to the type requested.
      * @return the byte sequence representing the terminal dependent escape sequence.
      */
-    public byte[] getGRSequence(int type, int param);
+    byte[] getGRSequence(int type, int param);
 
     /**
      * Returns a "formatted" string containing terminal dependent
@@ -292,7 +292,7 @@ public interface Terminal {
      * @return the string with sequences that will render properly
      * on the terminal.
      */
-    public String format(String str);
+    String format(String str);
 
     /**
      * Returns a "bold formatted" string containing terminal dependent
@@ -308,7 +308,7 @@ public interface Terminal {
      * @return the string with sequences that will render properly
      * on the terminal.
      */
-    public String formatBold(String str);
+    String formatBold(String str);
 
     /**
      * Returns the byte sequence that will init the terminal.<br>
@@ -316,7 +316,7 @@ public interface Terminal {
      * @return the byte sequence representing the terminal dependent
      * init escape sequence.
      */
-    public byte[] getInitSequence();
+    byte[] getInitSequence();
 
     /**
      * Returns if the terminal implementation supports
@@ -325,7 +325,7 @@ public interface Terminal {
      * @return a boolean that flags if the terminal supports GR (true)
      * or not (false).
      */
-    public boolean supportsSGR();
+    boolean supportsSGR();
 
     /**
      * Returns if the terminal implementation supports
@@ -336,7 +336,7 @@ public interface Terminal {
      * @return a boolean that flags if the terminal supports scrolling (true)
      * or not (false).
      */
-    public boolean supportsScrolling();
+    boolean supportsScrolling();
 
     /**
      * Returns the atomic escape sequence length of the terminal
@@ -344,7 +344,7 @@ public interface Terminal {
      *
      * @return the atomic escape sequence length.
      */
-    public int getAtomicSequenceLength();
+    int getAtomicSequenceLength();
 
 
 }//interface Terminal

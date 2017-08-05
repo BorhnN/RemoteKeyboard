@@ -576,7 +576,6 @@ public class TerminalIO implements BasicTerminalIO {
         if (!b && m_LineWrapping) {
             m_TelnetIO.write(m_Terminal.getSpecialSequence(NOLINEWRAP));
             m_LineWrapping = false;
-            return;
         }
     }//setLineWrapping
 

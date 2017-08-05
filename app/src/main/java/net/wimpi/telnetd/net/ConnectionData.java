@@ -394,43 +394,30 @@ public class ConnectionData {
             country = country.substring(country.lastIndexOf(".") + 1);
             if (country.equals("at")) {
                 m_Locale = new Locale("de", "AT");
-                return;
             } else if (country.equals("de")) {
                 m_Locale = new Locale("de", "DE");
-                return;
             } else if (country.equals("mx")) {
                 m_Locale = new Locale("es", "MX");
-                return;
             } else if (country.equals("es")) {
                 m_Locale = new Locale("es", "ES");
-                return;
             } else if (country.equals("it")) {
                 m_Locale = Locale.ITALY;
-                return;
             } else if (country.equals("fr")) {
                 m_Locale = Locale.FRANCE;
-                return;
             } else if (country.equals("uk")) {
                 m_Locale = new Locale("en", "GB");
-                return;
             } else if (country.equals("arpa")) {
                 m_Locale = Locale.US;
-                return;
             } else if (country.equals("com")) {
                 m_Locale = Locale.US;
-                return;
             } else if (country.equals("edu")) {
                 m_Locale = Locale.US;
-                return;
             } else if (country.equals("gov")) {
                 m_Locale = Locale.US;
-                return;
             } else if (country.equals("org")) {
                 m_Locale = Locale.US;
-                return;
             } else if (country.equals("mil")) {
                 m_Locale = Locale.US;
-                return;
             } else {
                 //default to english
                 m_Locale = Locale.ENGLISH;

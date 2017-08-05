@@ -36,7 +36,7 @@ public class MainActivity extends Activity implements
 
         // FIXME: This is anything but pretty! Apparently someone at Google thinks
         // that WLAN is ipv4 only.
-        WifiManager wifiManager = (WifiManager) getSystemService(WIFI_SERVICE);
+        WifiManager wifiManager = (WifiManager) getApplicationContext().getSystemService(WIFI_SERVICE);
         WifiInfo wifiInfo = wifiManager.getConnectionInfo();
         int addr = wifiInfo.getIpAddress();
         String ip = (addr & 0xFF) + "." + ((addr >> 8) & 0xFF) + "."

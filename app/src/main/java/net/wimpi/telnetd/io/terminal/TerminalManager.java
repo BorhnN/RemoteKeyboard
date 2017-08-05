@@ -92,7 +92,7 @@ public class TerminalManager {
         //Loading and applying settings
         try {
             Log.d(TAG, "Creating terminal manager.....");
-            boolean winhack = new Boolean(settings.getProperty("terminals.windoof")).booleanValue();
+            boolean winhack = Boolean.valueOf(settings.getProperty("terminals.windoof"));
 
             //Get the declared terminals
             String terms = settings.getProperty("terminals");

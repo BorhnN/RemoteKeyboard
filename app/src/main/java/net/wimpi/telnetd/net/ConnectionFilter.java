@@ -60,7 +60,7 @@ public interface ConnectionFilter {
      * @param props the properties of the listener that instantiated
      *              this <tt>ConnectionFilter</tt>.
      */
-    public void initialize(Properties props);
+    void initialize(Properties props);
 
     /**
      * Tests if a given ip address is allowed to connect.
@@ -68,6 +68,6 @@ public interface ConnectionFilter {
      * @param ip the address to be tested.
      * @return true if allowed to connect, false otherwise.
      */
-    public boolean isAllowed(InetAddress ip);
+    boolean isAllowed(InetAddress ip);
 
 }//interface ConnectionFilter

@@ -5,7 +5,6 @@
     <string name="err_noclient">No client connected!</string>
     <string name="notification_title">Android Remote Keyboard</string>
     <string name="notification_waiting">Listening on %1$s Port 2323</string>
-    <string name="title_activity_main">MainActivity</string>
     <string name="testtext">Test your connection here!</string>
     <string name="mi_help">Help</string>
     <string name="mi_select">Select Keyboard</string>

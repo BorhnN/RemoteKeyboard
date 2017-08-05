@@ -60,19 +60,19 @@ class CharBuffer {
     public void setCharAt(int pos, char ch)
             throws IndexOutOfBoundsException {
 
-        m_Buffer.setElementAt(new Character(ch), pos);
+        m_Buffer.setElementAt(Character.valueOf(ch), pos);
     }//setCharAt
 
     public void insertCharAt(int pos, char ch)
             throws BufferOverflowException, IndexOutOfBoundsException {
 
-        m_Buffer.insertElementAt(new Character(ch), pos);
+        m_Buffer.insertElementAt(Character.valueOf(ch), pos);
     }//insertCharAt
 
     public void append(char aChar)
             throws BufferOverflowException {
 
-        m_Buffer.addElement(new Character(aChar));
+        m_Buffer.addElement(Character.valueOf(aChar));
     }//append
 
     public void append(String str)

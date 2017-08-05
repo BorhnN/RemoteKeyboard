@@ -98,7 +98,7 @@ public class PortListener
             int port = Integer.parseInt(settings.getProperty(name + ".port"));
             int floodprot = Integer.parseInt(settings.getProperty(name + ".floodprotection"));
 
-            if (new Boolean(settings.getProperty(name + ".secure")).booleanValue()) {
+            if (Boolean.valueOf(settings.getProperty(name + ".secure"))) {
                 //do nothing for now, probably set factory in the future
             }
             pl = new PortListener(name, port, floodprot);
@@ -206,7 +206,7 @@ public class PortListener
             m_ServerSocket = new ServerSocket(m_Port, m_FloodProtection);
 
             //log entry
-            Object[] args = {new Integer(m_Port), new Integer(m_FloodProtection)};
+            Object[] args = {Integer.valueOf(m_Port), Integer.valueOf(m_FloodProtection)};
             Log.i(TAG, MessageFormat.format(logmsg, args));
 
             do {

@@ -213,7 +213,7 @@ public class RemoteKeyboardService extends InputMethodService implements
         if (remote == null) {
             // FIXME: This is anything but pretty! Apparently someone at Google thinks
             // that WLAN is ipv4 only.
-            WifiManager wifiManager = (WifiManager) getSystemService(WIFI_SERVICE);
+            WifiManager wifiManager = (WifiManager) getApplicationContext().getSystemService(WIFI_SERVICE);
             WifiInfo wifiInfo = wifiManager.getConnectionInfo();
             int addr = wifiInfo.getIpAddress();
             String ip = (addr & 0xFF) + "." + ((addr >> 8) & 0xFF) + "."
@@ -254,6 +254,7 @@ public class RemoteKeyboardService extends InputMethodService implements
             tmp.put(cursor.getString(0), cursor.getString(1));
             cursor.moveToNext();
         }
+        cursor.close();
         database.close();
         replacements = tmp;
     }

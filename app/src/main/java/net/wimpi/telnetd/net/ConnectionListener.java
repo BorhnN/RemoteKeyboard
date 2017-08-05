@@ -52,7 +52,7 @@ public interface ConnectionListener {
      * @param ce ConnectionEvent instance.
      * @see net.wimpi.telnetd.net.ConnectionEvent#CONNECTION_IDLE
      */
-    public void connectionIdle(ConnectionEvent ce);
+    void connectionIdle(ConnectionEvent ce);
 
     /**
      * Called when a CONNECTION_TIMEDOUT event occured.
@@ -60,7 +60,7 @@ public interface ConnectionListener {
      * @param ce ConnectionEvent instance.
      * @see net.wimpi.telnetd.net.ConnectionEvent#CONNECTION_TIMEDOUT
      */
-    public void connectionTimedOut(ConnectionEvent ce);
+    void connectionTimedOut(ConnectionEvent ce);
 
     /**
      * Called when a CONNECTION_LOGOUTREQUEST occured.
@@ -68,7 +68,7 @@ public interface ConnectionListener {
      * @param ce ConnectionEvent instance.
      * @see net.wimpi.telnetd.net.ConnectionEvent#CONNECTION_LOGOUTREQUEST
      */
-    public void connectionLogoutRequest(ConnectionEvent ce);
+    void connectionLogoutRequest(ConnectionEvent ce);
 
     /**
      * Called when a CONNECTION_BROKEN event occured.
@@ -85,6 +85,6 @@ public interface ConnectionListener {
      * @param ce ConnectionEvent instance.
      * @see net.wimpi.telnetd.net.ConnectionEvent#CONNECTION_BREAK
      */
-    public void connectionSentBreak(ConnectionEvent ce);
+    void connectionSentBreak(ConnectionEvent ce);
 
 }//interface ConnectionListener

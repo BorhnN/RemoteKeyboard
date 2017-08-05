@@ -300,9 +300,6 @@ public class TelnetIO {
     private IACHandler m_IACHandler;
     //Members
     private InetAddress m_LocalAddress;
-    //address of the host the telnetd is running on
-    private boolean m_NOIAC = false;
-    private boolean m_Initializing;
     private boolean m_CRFlag;
 
     /**
@@ -356,11 +353,7 @@ public class TelnetIO {
 
         m_Out.write(b);
 
-        if (b == 13) {
-            m_CRFlag = true;
-        } else {
-            m_CRFlag = false;
-        }
+        m_CRFlag = b == 13;
         //} catch (IOException e) {
         //  if (m_Connection.isActive()) {
         //    m_ConnectionData.getManager().registerBrokenConnection(m_Connection);
@@ -471,7 +464,7 @@ public class TelnetIO {
     public int read() throws IOException {
         int c = rawread();
         //if (c == 255) {
-        m_NOIAC = false;
+        boolean m_NOIAC = false;
         while ((c == 255) && (!m_NOIAC)) {
             /**
              * Read next, and invoke
@@ -589,7 +582,7 @@ public class TelnetIO {
      */
     private void initTelnetCommunication() {
 
-        m_Initializing = true;
+        boolean m_Initializing = true;
         try {
             //start out, some clients just wait
             if (m_ConnectionData.isLineMode()) {
@@ -843,7 +836,7 @@ public class TelnetIO {
         /* First switch on the Negotiation Option */
                 case WILL:
                     if (supported(buf[1]) && isEnabled(buf[1])) {
-                        ;// do nothing
+                        // do nothing
                     } else {
                         if (waitDOreply(buf[1]) && supported(buf[1])) {
                             enable(buf[1]);
@@ -870,7 +863,7 @@ public class TelnetIO {
                     break;
                 case DO:
                     if (supported(buf[1]) && isEnabled(buf[1])) {
-                        ; // do nothing
+                        // do nothing
                     } else {
                         if (waitWILLreply(buf[1]) && supported(buf[1])) {
                             enable(buf[1]);
@@ -915,14 +908,12 @@ public class TelnetIO {
                                 handleNEWENV();
                                 break;
                             default:
-                                ;
                         }
                     } else {
                         //do nothing
                     }
                     break;
                 default:
-                    ;
             }//switch
         }//parse
 
@@ -1427,25 +1418,13 @@ public class TelnetIO {
         private void enable(int i) throws IOException {
             switch (i) {
                 case SUPGA:
-                    if (DO_SUPGA) {
-                        DO_SUPGA = false;
-                    } else {
-                        DO_SUPGA = true;
-                    }
+                    DO_SUPGA = !DO_SUPGA;
                     break;
                 case ECHO:
-                    if (DO_ECHO) {
-                        DO_ECHO = false;
-                    } else {
-                        DO_ECHO = true;
-                    }
+                    DO_ECHO = !DO_ECHO;
                     break;
                 case NAWS:
-                    if (DO_NAWS) {
-                        DO_NAWS = false;
-                    } else {
-                        DO_NAWS = true;
-                    }
+                    DO_NAWS = !DO_NAWS;
                     break;
                 case TTYPE:
                     if (DO_TTYPE) {

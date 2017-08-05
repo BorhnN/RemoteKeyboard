@@ -256,7 +256,7 @@ public class ConnectionManager implements Runnable {
                 //create a new Connection instance
                 Connection con = new Connection(m_ThreadGroup, newCD);
                 //log the newly created connection
-                Object[] args = {new Integer(m_OpenConnections.size() + 1)};
+                Object[] args = {Integer.valueOf(m_OpenConnections.size() + 1)};
                 Log.i(TAG, MessageFormat.format("connection #{0,number,integer} made.", args));
                 //register it for being managed
                 synchronized (m_OpenConnections) {

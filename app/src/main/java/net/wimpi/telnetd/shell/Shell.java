@@ -58,6 +58,6 @@ public interface Shell
      *
      * @param con Connection the shell is associated with
      */
-    public void run(Connection con);
+    void run(Connection con);
 
 }//interface Shell

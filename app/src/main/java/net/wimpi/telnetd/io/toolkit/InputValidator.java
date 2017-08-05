@@ -52,6 +52,6 @@ public interface InputValidator {
      * @param str String representing the Editfields value.
      * @return boolean representing if input was valid or not (and user has to reedit).
      */
-    public boolean validate(String str);
+    boolean validate(String str);
 
 }//interface InputValidator

@@ -49,7 +49,7 @@ public class AppRater implements DialogInterface.OnClickListener {
             date_firstLaunch = System.currentTimeMillis();
             editor.putLong("date_firstlaunch", date_firstLaunch);
         }
-        editor.commit();
+        editor.apply();
 
         // Wait at least n days before opening
         if (launch_count >= LAUNCHES_UNTIL_PROMPT) {
@@ -101,7 +101,7 @@ public class AppRater implements DialogInterface.OnClickListener {
                 editor.putLong("launch_count", 0);
             }
         }
-        editor.commit();
+        editor.apply();
         di.dismiss();
     }
 }

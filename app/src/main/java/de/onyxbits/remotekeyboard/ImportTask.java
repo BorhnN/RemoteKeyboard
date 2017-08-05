@@ -25,7 +25,7 @@ import java.util.Iterator;
  */
 class ImportTask extends AsyncTask<String, Integer, String> {
 
-    public static final String TAG = "de.onyxbits.remotekeyboard.ImportTask";
+    public static final String TAG = ImportTask.class.getSimpleName();
 
     private ReplacementsListActivity master;
 

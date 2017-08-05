@@ -171,11 +171,7 @@ public class Connection
      */
     public boolean setNextShell(String name) {
         m_NextShell = ShellManager.getReference().getShell(name);
-        if (m_NextShell == null) {
-            return false;
-        } else {
-            return true;
-        }
+        return m_NextShell != null;
     }//setNextShell
 
     /**
@@ -203,7 +199,6 @@ public class Connection
      */
     public synchronized void close() {
         if (m_Dead) {
-            return;
         } else {
             try {
                 //connection dead
